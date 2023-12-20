@@ -20,7 +20,11 @@ func RunServer() {
 		return c.String(http.StatusOK, "Server is up! TEST")
 	})
 
-	runNgrok(context.Background(), e)
+	err := runNgrok(context.Background(), e)
+
+	if err != nil {
+		return
+	}
 
 }
 
